@@ -15,8 +15,6 @@
     </head>
 
     <body>
-      <!--Body-->
-
       <div class="navbar-fixed">
         <nav class="nav-extended amber darken-2">
           <div class="nav-wrapper">
@@ -34,20 +32,26 @@
       <br><br><br>
 
       <div class="row">
-        <div class="col s12 m6">
-          <div class="card amber">
-            <div class="card-content white-text">
-              <span class="card-title">Lime</span>
-              <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
+        <form class="col s12">
+            <div class="row">
+              <div class="input-field col s11">
+                <i class="material-icons prefix">arrow_upward</i>
+                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Starting Location</label>
+              </div>
             </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-              <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-              <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1">book for $3.50</a>
+          </form>
+        </div>
+      <div class="row">
+        <form class="col s12">
+            <div class="row">
+            <div class="input-field col s11">
+              <i class="material-icons prefix">arrow_downward</i>
+              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <label for="icon_prefix2">Ending Location</label>
             </div>
           </div>
-        </div>
+        </form>
       </div>
 
       <div class="row">
@@ -61,75 +65,97 @@
               <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
               <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
               <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1">book for $3.50</a>
+              <a class="waves-effect waves-light btn-small right amber darken-1" href="navigation.html?ridevars">book for $3.50</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card amber">
-            <div class="card-content white-text">
-              <span class="card-title">Lime</span>
-              <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-              <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-              <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1">book for $3.50</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card amber">
-            <div class="card-content white-text">
-              <span class="card-title">Lime</span>
-              <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-              <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-              <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1">book for $3.50</a>
+      <div class="rideCard">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card amber">
+              <div class="card-content white-text">
+                <span class="card-title insertSteps">Placeholder</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
+                <p>steps go here</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card amber">
-            <div class="card-content white-text">
-              <span class="card-title">Lime</span>
-              <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-              <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-              <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1">book for $3.50</a>
+      <div class="rideCard">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card amber">
+              <div class="card-content white-text">
+                <span class="card-title insertSteps">Placeholder</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
+                <p>steps go here</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card amber">
-            <div class="card-content white-text">
-              <span class="card-title">Lime</span>
-              <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
+      <div class="rideCard">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card amber">
+              <div class="card-content white-text">
+                <span class="card-title insertSteps">Placeholder</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
+                <p>steps go here</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+              </div>
             </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-              <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-              <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1">book for $3.50</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rideCard">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card amber">
+              <div class="card-content white-text">
+                <span class="card-title insertSteps">Placeholder</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
+                <p>steps go here</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rideCard">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card amber">
+              <div class="card-content white-text">
+                <span class="card-title insertSteps">Placeholder</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
+                <p>steps go here</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+              </div>
             </div>
           </div>
         </div>
