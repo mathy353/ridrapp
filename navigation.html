@@ -16,9 +16,26 @@
 
   <body>
     <!--Body-->
-    
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+
+
+    <!--Script-->
+    <script language="JavaScript">
+
+    function processSteps(){
+      var dump = location.search.substring(1);
+      console.log(dump);
+      var decoded = atob(dump).split('&');
+      console.log(decoded);
+    }
+
+    processSteps();
+
+  </script>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
   </body>
   </html>

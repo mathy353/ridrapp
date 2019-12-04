@@ -31,44 +31,29 @@
 
       <br><br><br>
 
-      <div class="row">
-        <form class="col s12">
-            <div class="row">
+      <div class="searches">
+        <div class="row">
+          <form class="col s12">
+              <div class="row">
+                <div class="input-field col s11">
+                  <i class="material-icons prefix">arrow_upward</i>
+                  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                  <label for="icon_prefix2">Starting Location</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        <div class="row">
+          <form class="col s12">
+              <div class="row">
               <div class="input-field col s11">
-                <i class="material-icons prefix">arrow_upward</i>
+                <i class="material-icons prefix">arrow_downward</i>
                 <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                <label for="icon_prefix2">Starting Location</label>
+                <label for="icon_prefix2">Ending Location</label>
               </div>
             </div>
           </form>
         </div>
-      <div class="row">
-        <form class="col s12">
-            <div class="row">
-            <div class="input-field col s11">
-              <i class="material-icons prefix">arrow_downward</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-              <label for="icon_prefix2">Ending Location</label>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card amber">
-            <div class="card-content white-text">
-              <span class="card-title">Lime</span>
-              <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-              <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-              <p>+ RIDR fee (flat $1.00)</p>
-              <a class="waves-effect waves-light btn-small right amber darken-1" href="navigation.html?ridevars">book for $3.50</a>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="rideCard">
@@ -76,90 +61,66 @@
           <div class="col s12 m6">
             <div class="card amber">
               <div class="card-content white-text">
-                <span class="card-title insertSteps">Placeholder</span>
-                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+                <span class="card-title">Lime</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
-                <p>steps go here</p>
-                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+                <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
+                <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
+                <p>+ RIDR fee (flat $1.00)</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1" href="navigation.html?">book for $3.50</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="rideCard">
+      <div class="rideCard" id="rideCardTemplate" style="display: none;">
         <div class="row">
           <div class="col s12 m6">
             <div class="card amber">
               <div class="card-content white-text">
-                <span class="card-title insertSteps">Placeholder</span>
-                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
+                <span class="card-title" id="insertSteps">Placeholder</span>
+                <a class="waves-effect waves-light btn-small right amber darken-2 activator" id="insertPriceActivator">book for $price</a>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
-                <p>steps go here</p>
-                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
+                <span class="card-title grey-text text-darken-4" id="insertSteps2">Placeholder<i class="material-icons right">close</i></span>
+                <p id="insertStepsDetailed">steps go here</p>
+                <a class="waves-effect waves-light btn-small right amber darken-1" id="insertPricePurchase" href="navigation.html?rideVars">book for $price</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="rideCard">
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card amber">
-              <div class="card-content white-text">
-                <span class="card-title insertSteps">Placeholder</span>
-                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
-                <p>steps go here</p>
-                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <script language="JavaScript">
 
-      <div class="rideCard">
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card amber">
-              <div class="card-content white-text">
-                <span class="card-title insertSteps">Placeholder</span>
-                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
-                <p>steps go here</p>
-                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      function makeRideCard(rideArray){
+        var rideCard = document.getElementById("rideCardTemplate");
+        var newRideCard = rideCard.cloneNode(true);
+        var newRideCardSteps = [];//every 6th item in list starting from 0 (0, 7, 13, etc. are all valid steps)
+        for (var i = 0; i + 6 <= rideArray.length; i += 6) {
+          newRideCardSteps.push(rideArray[i]);
+        };
+        var counter = 0;
+        for (var j = 1; j + 6 <= rideArray.length; j += 6) {
+          counter += rideArray[i];
+        };
+        var newRideCardPrice = counter;
+        var newRideCardStepsDetailed = //this is a string of each name, price, and ending fee or whatever (detailed breakdown, check the hardcoded card above)
+        //insert all ya shit
+        //rename it away from rideCardTemplate
+        //remove "style='display:none;'"
+        rideCard.insertAdjacentHTML("beforebegin", newRideCard.outerHTML);
 
-      <div class="rideCard">
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card amber">
-              <div class="card-content white-text">
-                <span class="card-title insertSteps">Placeholder</span>
-                <a class="waves-effect waves-light btn-small right amber darken-2 activator insertPrice">book for $price</a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4 insertSteps">Placeholder<i class="material-icons right">close</i></span>
-                <p>steps go here</p>
-                <a class="waves-effect waves-light btn-small right amber darken-1 insertPrice" href="navigation.html?<pickup1><name1><price1><dropoff1>">book for $price</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      };
+
+      var testRideArray = ["Uber", 1000, "STARTLAT", "STARTLONG", "ENDLAT", "ENDLONG"]
+      var testRideArrayMultiple = ["MetroBus", 150, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", "Lime", 350, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2", "Uber", 1000, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"]
+      makeRideCard(testRideArray);
+
+      </script>
 
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
