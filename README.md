@@ -8,15 +8,13 @@
 - Allow user to pay for all combined services with one virtual wallet
 
 ### Tech
-We are making good use of a variety of APIs and libraries in order to get straight to developing our solution without wasting time trying to reinvent the wheel
-- [Materialize](https://nodejs.org/)
-- [Google Maps API](https://nodejs.org/)
-- [Google Locations API](https://nodejs.org/)
-- Various Bikeshare/Micromobility APIs documented [here](https://nodejs.org/)
+We are making good use of a variety of APIs and libraries to aid our development
+- [Materialize](http://materializecss.com/)
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/)
+- [Google Directions API](https://developers.google.com/maps/documentation/directions/)
+- Various Bikeshare/Micromobility APIs documented [here](https://github.com/ubahnverleih/WoBike)
 
 ### Photos
 ![Whiteboard1](https://i.imgur.com/R0mIM9R.jpg)
 ![Whiteboard2](https://i.imgur.com/fkkPMih.jpg)
 ![Whiteboard3](https://i.imgur.com/BVw92gi.jpg)
-![Code1](https://i.imgur.com/QHAqZAn.png)
-![Mockup1](https://i.imgur.com/sN1xp3P.gif)
