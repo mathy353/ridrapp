@@ -98,7 +98,7 @@
       function makeRideCard(rideArray){
         var rideCard = document.getElementById("rideCardTemplate");
         var newRideCard = rideCard.cloneNode(true);
-        var newRideCardSteps = [];//every 6th item in list starting from 0 (0, 7, 13, etc. are all valid steps)
+        var newRideCardSteps = [];//every 6th item in list starting from 0 (0, 7, 13, etc. are all valid steps). Will read ["uber", "lime", "metrobus"].
         for (var i = 0; i + 6 <= rideArray.length; i += 6) {
           newRideCardSteps.push(rideArray[i]);
         };
