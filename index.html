@@ -56,25 +56,6 @@
         </div>
       </div>
 
-      <div class="rideCard">
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card amber">
-              <div class="card-content white-text">
-                <span class="card-title">Lime</span>
-                <a class="waves-effect waves-light btn-small right amber darken-2 activator">book for $3.50</a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Lime<i class="material-icons right">close</i></span>
-                <p>Lime ($1.00 activation, $0.15 per minute for 10 minutes)</p>
-                <p>+ RIDR fee (flat $1.00)</p>
-                <a class="waves-effect waves-light btn-small right amber darken-1" href="navigation.html?">book for $3.50</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="rideCard" id="rideCardTemplate" style="display: none;">
         <div class="row">
           <div class="col s12 m6">
@@ -98,27 +79,44 @@
       function makeRideCard(rideArray){
         var rideCard = document.getElementById("rideCardTemplate");
         var newRideCard = rideCard.cloneNode(true);
-        var newRideCardSteps = [];//every 6th item in list starting from 0 (0, 7, 13, etc. are all valid steps). Will read ["uber", "lime", "metrobus"].
+        var newRideCardSteps = [];
+        var newRideCardPrices = [];
+        var counter = 0
         for (var i = 0; i + 6 <= rideArray.length; i += 6) {
+          var j = i + 1
           newRideCardSteps.push(rideArray[i]);
-        };
-        var counter = 0;
-        for (var j = 1; j + 6 <= rideArray.length; j += 6) {
-          counter += rideArray[i];
+          newRideCardPrices.push(rideArray[j]);
+          counter += rideArray[j]
         };
         var newRideCardPrice = counter;
-        var newRideCardStepsDetailed = //this is a string of each name, price, and ending fee or whatever (detailed breakdown, check the hardcoded card above)
-        //insert all ya shit
-        //rename it away from rideCardTemplate
-        //remove "style='display:none;'"
+        var newRideCardStepsDetailed = "";
+        var newRideCardStepsString = "";
+        for(var j = 0; j < newRideCardSteps.length; j++){
+          newRideCardStepsString += newRideCardSteps[j] + "→";
+          newRideCardStepsDetailed += newRideCardSteps[j] + " ($" + newRideCardPrices[j].toFixed(2) +"), ";
+        };
+        newRideCardStepsString = newRideCardStepsString.slice(0, -1);
+        newRideCardStepsDetailed += "& RIDR fee: $1.00";
+
+        rideCard.querySelector('#insertSteps').innerHTML = newRideCardStepsString;
+        rideCard.querySelector("#insertPriceActivator").innerHTML = "BOOK FOR $" + newRideCardPrice.toFixed(2);
+        rideCard.querySelector("#insertSteps2").innerHTML = newRideCardStepsString;
+        rideCard.querySelector("#insertStepsDetailed").innerHTML = newRideCardStepsDetailed;
+        rideCard.querySelector("#insertPricePurchase").innerHTML = "BOOK FOR $" + newRideCardPrice.toFixed(2);
+
+        rideCard.style = "";
+        rideCard.id = "";
+
         rideCard.insertAdjacentHTML("beforebegin", newRideCard.outerHTML);
-
-
       };
 
-      var testRideArray = ["Uber", 1000, "STARTLAT", "STARTLONG", "ENDLAT", "ENDLONG"]
-      var testRideArrayMultiple = ["MetroBus", 150, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", "Lime", 350, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2", "Uber", 1000, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"]
+      var testRideArray = ["Uber", 10.00, "STARTLAT", "STARTLONG", "ENDLAT", "ENDLONG"]
+      var testRideArrayMultiple = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", "Lime", 3.50, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2", "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"]
+      var testRideArrayLess = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"]
+
       makeRideCard(testRideArray);
+      makeRideCard(testRideArrayMultiple);
+      makeRideCard(testRideArrayLess);
 
       </script>
 
