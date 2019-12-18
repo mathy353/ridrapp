@@ -88,7 +88,8 @@
           newRideCardPrices.push(rideArray[j]);
           counter += rideArray[j]
         };
-        var newRideCardPrice = counter;
+        var fee = 5.00
+        var newRideCardPrice = counter + fee;
         var newRideCardStepsDetailed = "";
         var newRideCardStepsString = "";
         for(var j = 0; j < newRideCardSteps.length; j++){
@@ -98,7 +99,7 @@
         newRideCardStepsString = newRideCardStepsString.slice(0, -1);
         newRideCardStepsDetailed += "& RIDR fee: $1.00";
 
-        rideCard.querySelector('#insertSteps').innerHTML = newRideCardStepsString;
+        rideCard.querySelector("#insertSteps").innerHTML = newRideCardStepsString;
         rideCard.querySelector("#insertPriceActivator").innerHTML = "BOOK FOR $" + newRideCardPrice.toFixed(2);
         rideCard.querySelector("#insertSteps2").innerHTML = newRideCardStepsString;
         rideCard.querySelector("#insertStepsDetailed").innerHTML = newRideCardStepsDetailed;
@@ -110,13 +111,24 @@
         rideCard.insertAdjacentHTML("beforebegin", newRideCard.outerHTML);
       };
 
-      var testRideArray = ["Uber", 10.00, "STARTLAT", "STARTLONG", "ENDLAT", "ENDLONG"]
-      var testRideArrayMultiple = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", "Lime", 3.50, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2", "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"]
-      var testRideArrayLess = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"]
+      var testRideArray = ["Uber", 10.00, "STARTLAT", "STARTLONG", "ENDLAT", "ENDLONG"];
+
+      var testRideArrayMultiple = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
+                                   "Lime", 3.50, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2",
+                                   "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"];
+
+      var testRideArrayLess = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
+                               "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"];
+
+      var testRideArrayMore = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
+                               "Lime", 3.50, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2",
+                               "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2",
+                               "Lyft", 15.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"];
 
       makeRideCard(testRideArray);
       makeRideCard(testRideArrayMultiple);
       makeRideCard(testRideArrayLess);
+      makeRideCard(testRideArrayMore);
 
       </script>
 
