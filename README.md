@@ -8,7 +8,7 @@
 - Allow user to pay for all combined services with one virtual wallet
 
 ### Tech
-We are making good use of a variety of APIs and libraries to aid our development
+We are making good use of a variety of APIs and libraries to aid our development:
 - [Materialize](http://materializecss.com/)
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript/)
 - [Google Directions API](https://developers.google.com/maps/documentation/directions/)
@@ -18,3 +18,4 @@ We are making good use of a variety of APIs and libraries to aid our development
 ![Whiteboard1](https://i.imgur.com/R0mIM9R.jpg)
 ![Whiteboard2](https://i.imgur.com/fkkPMih.jpg)
 ![Whiteboard3](https://i.imgur.com/BVw92gi.jpg)
+![MapGif](https://i.imgur.com/44LbngI.gifv)
