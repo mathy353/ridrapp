@@ -31,30 +31,29 @@
 
       <br><br><br>
 
-      <div class="searches">
+      <div class="searches amber lighten-2" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10">
         <div class="row">
           <form class="col s12">
               <div class="row">
                 <div class="input-field col s11">
-                  <i class="material-icons prefix">arrow_upward</i>
-                  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                  <label for="icon_prefix2">Starting Location</label>
+                  <i class="material-icons prefix white-text">arrow_upward</i>
+                  <textarea id="icon_prefix2" class="materialize-textarea-bare" style="resize: none; border: none"></textarea>
+                  <label for="icon_prefix2" style="color: #FFFFFF">Starting Location</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s11">
+                  <i class="material-icons prefix white-text">arrow_downward</i>
+                  <textarea id="icon_prefix2" class="materialize-textarea-bare" style="resize: none; border: none"></textarea>
+                  <label for="icon_prefix2" style="color: #FFFFFF">Ending Location</label>
                 </div>
               </div>
             </form>
-          </div>
-        <div class="row">
-          <form class="col s12">
-              <div class="row">
-              <div class="input-field col s11">
-                <i class="material-icons prefix">arrow_downward</i>
-                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                <label for="icon_prefix2">Ending Location</label>
-              </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn-large col s10 offset-s1 amber darken-2" onclick="makeTestFollowers()">Get me a ride!</a>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
 
       <div class="rideCard" id="rideCardTemplate" style="display: none;">
         <div class="row">
@@ -125,10 +124,12 @@
                                "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2",
                                "Lyft", 15.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"];
 
-      makeRideCard(testRideArray);
-      makeRideCard(testRideArrayMultiple);
-      makeRideCard(testRideArrayLess);
-      makeRideCard(testRideArrayMore);
+      function makeTestFollowers(){
+        makeRideCard(testRideArray);
+        makeRideCard(testRideArrayMultiple);
+        makeRideCard(testRideArrayLess);
+        makeRideCard(testRideArrayMore);
+      }
 
       </script>
 
