@@ -18,4 +18,4 @@ We are making good use of a variety of APIs and libraries to aid our development
 ![Whiteboard1](https://i.imgur.com/R0mIM9R.jpg)
 ![Whiteboard2](https://i.imgur.com/fkkPMih.jpg)
 ![Whiteboard3](https://i.imgur.com/BVw92gi.jpg)
-![MapGif](https://i.imgur.com/44LbngI.gifv)
+![MapGif](https://i.imgur.com/44LbngI.gif)
