@@ -134,6 +134,30 @@
 
       </script>
 
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyAc5mhmmkk7_dxos4Iab7wkBBnoRUxl9vg",
+          authDomain: "ridr-web.firebaseapp.com",
+          databaseURL: "https://ridr-web.firebaseio.com",
+          projectId: "ridr-web",
+          storageBucket: "ridr-web.appspot.com",
+          messagingSenderId: "681471467832",
+          appId: "1:681471467832:web:1135aa1bc6d7f3a90821cd",
+          measurementId: "G-NPWTWSJVXX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      </script>
+
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
     </body>

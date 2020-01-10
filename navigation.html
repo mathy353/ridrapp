@@ -249,7 +249,59 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc&callback=initMap"
     async defer></script>
-  </body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+    <script id="initialize firebase here">
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAc5mhmmkk7_dxos4Iab7wkBBnoRUxl9vg",
+        authDomain: "ridr-web.firebaseapp.com",
+        databaseURL: "https://ridr-web.firebaseio.com",
+        projectId: "ridr-web",
+        storageBucket: "ridr-web.appspot.com",
+        messagingSenderId: "681471467832",
+        appId: "1:681471467832:web:1135aa1bc6d7f3a90821cd",
+        measurementId: "G-NPWTWSJVXX"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <script id="pull locations from bikeshare for now">
+
+    function showBikes(map, locations){                                         //function to place bikeshare locations from firebase on the map with a custom image
+      for(var i = 0; i < locations.length; i++){                                //for every item in the locatons list
+        var latlng = locations[i].split(", ").map(Number);                      //make a temporary lat/long varaible by splitting the string and mapping our new seperate strings to numbers
+        var lat = latlng[0]; var lng = latlng[1];                               //seperate our lat/long list into a latitude and longitude
+        var image = './icons/bike.png'                                          //locate our bikeshare image
+        var marker = new google.maps.Marker({                                   //create the marker class
+          position: {lat, lng},                                                 //with a position defined by our latitude and longitude
+          map: map,                                                             //on our map
+          title: 'bikeshare',                                                   //with a title labelling it as a bikeshare location
+          icon: image                                                           //and the image we located earlier
+        });
+      }
+    }
+
+    var ref = firebase.database().ref('locations/bikeshare/');                  //get a reference of out database at location RIDRapp/locations/bikeshare
+    var bikes;                                                                  //setting up a var for use later
+    ref.on("value", function(snapshot) {                                        //when the reference values update (load), take a snapshot and run some code
+      showBikes(map, snapshot.val())                                            //run the above function with our map and the snapshot we just took
+    }, function (error) {                                                       //if an error arises,
+      console.log("Error: " + error.code);                                      //report it in the console
+    });
+
+    </script>
+
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
