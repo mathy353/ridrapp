@@ -276,7 +276,7 @@
       firebase.analytics();
     </script>
 
-    <script id="pull locations from bikeshare for now">
+    <script id="pull locations from bikeshare">
 
     function showBikes(map, locations){                                         //function to place bikeshare locations from firebase on the map with a custom image
       for(var i = 0; i < locations.length; i++){                                //for every item in the locatons list
@@ -301,9 +301,37 @@
     });
 
     </script>
+    <script id="use the google maps geolocation and places APIs in order to get the user's location and return close bus stops">
 
-  <!--JavaScript at end of body for optimized loading-->
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+    function showBusStops(m, la, ln){
+      //make request for bus stops around our geo lat/lng
+      //loop and show markers with icon
+    }
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      console.log('Your current position is:');
+      console.log(`Latitude : ${pos.coords.latitude}`);
+      console.log(`Longitude: ${pos.coords.longitude}`);
+      console.log(`More or less ${pos.coords.accuracy} meters.`);
+      var lat = pos.coords.latitude; var lng = pos.coords.longitude;
+      map.setCenter({lat,lng});
+      showBusStops(map, lat, lng);
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+    </script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
   </body>
   </html>
