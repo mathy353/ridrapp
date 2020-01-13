@@ -1,7 +1,7 @@
-![Ridr](https://i.imgur.com/YuhDbm5.png)
+![Ridr](https://i.imgur.com/rPJMnek.png)
 # RIDR is a webapp designed to make your commute more efficient.
 
-### Planned 1.0 features include:
+### Planned 1.0 features include: <img align="right" width="100" height="100" src="https://i.imgur.com/DgisJ3S.png">
 - Locate nearby micro-mobility services
 - Route between located services in a variety of ways
 - Allow user to choose between one of many routes based on descriptors like speed, cost, and accessibility
