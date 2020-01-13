@@ -1,5 +1,5 @@
 ![Ridr](https://i.imgur.com/rPJMnek.png)
-# RIDR is a webapp designed to make your commute more efficient. <img align="right" width="100" height="100" src="https://i.imgur.com/DgisJ3S.png">
+# RIDR is a webapp designed to make your commute more efficient.
 
 ### Planned 1.0 features include:
 - Locate nearby micro-mobility services
@@ -7,7 +7,7 @@
 - Allow user to choose between one of many routes based on descriptors like speed, cost, and accessibility
 - Allow user to pay for all combined services with one virtual wallet
 
-### Tech
+### Tech <img align="right" width="100" height="100" src="https://i.imgur.com/DgisJ3S.png">
 We are making good use of a variety of APIs and libraries to aid our development:
 - [Materialize](http://materializecss.com/)
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript/)
