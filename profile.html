@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav class="nav-extended amber darken-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo" style="font-family: 'Staatliches', cursive">⤜R─i─d─r⟶</a>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="profile.html">Profile</a></li>
+            <li class="tab"><a href="index.html">Search</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <br><br><br>
+
+    <div class="amber white-text" id="profileHolder" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10">
+      <div class="row">
+        <br>
+        <div class="col s4">
+          <img id="profilePicture" src="" alt="Profile Picture" style="width:100px; height:100px; border-radius: 50px" class="center">
+        </div>
+        <div class="col s8" id="nameHolder">
+          <h3 id="fullName">Firstname Lastname</h3>
+          <p id="emailHolder">username@domain.com</p>
+        </div>
+      </div>
+      <div class="row">
+        <h4 id="priority" class="center-align">Priorities</h4>
+        <div class="col s12">
+          <ul class="collection amber lighten-2 black-text">
+            <li id="priority1" class="collection-item">Ridr</li>
+            <li id="priority2" class="collection-item">Will</li>
+            <li id="priority3" class="collection-item">Place</li>
+            <li id="priority4" class="collection-item">First</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAc5mhmmkk7_dxos4Iab7wkBBnoRUxl9vg",
+        authDomain: "ridr-web.firebaseapp.com",
+        databaseURL: "https://ridr-web.firebaseio.com",
+        projectId: "ridr-web",
+        storageBucket: "ridr-web.appspot.com",
+        messagingSenderId: "681471467832",
+        appId: "1:681471467832:web:1135aa1bc6d7f3a90821cd",
+        measurementId: "G-NPWTWSJVXX"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <script language="JavaScript">
+      function initUser(usrdump){
+        var profileHolder = document.getElementById("profileHolder");
+        profileHolder.querySelector("#profilePicture").src = usrdump.img;
+        profileHolder.querySelector("#nameHolder").querySelector("#fullName").innerHTML = usrdump.name;
+        profileHolder.querySelector("#nameHolder").querySelector("#emailHolder").innerHTML = usrdump.email;
+        profileHolder.querySelector("#priority1").innerHTML = usrdump.priority[0];
+        profileHolder.querySelector("#priority2").innerHTML = usrdump.priority[1];
+        profileHolder.querySelector("#priority3").innerHTML = usrdump.priority[2];
+        profileHolder.querySelector("#priority4").innerHTML = usrdump.priority[3];
+      }
+
+      var ref = firebase.database().ref('users/001/');
+      ref.on("value", function(snapshot) {
+        initUser(snapshot.val());
+      }, function (error) {
+        console.log("Error: " + error.code);
+      });
+    </script>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
