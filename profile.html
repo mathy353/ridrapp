@@ -30,7 +30,7 @@
     </div>
 
     <br><br><br>
-    <div class="amber white-text" id="loginHolder" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10">
+    <div class="amber white-text" id="loginHolder" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10" onload="checkCookie();">
       <h3 class="center-align">Register</h3>
       <div class="row">
         <form class="col s12" id="loginData">
@@ -150,8 +150,27 @@
       });
       document.cookie = "user=" + userId;
       document.getElementById("profileHolder").style = "border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
-      document.getElementById("loginHolder").style = "display: hidden; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+      document.getElementById("loginHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
       userLoad(userId.toString());
+    }
+    function checkCookie(){
+      var cookies = document.cookie.split("; ");
+      var userId;
+      for(var i; i < cookies.length; i++){
+        if(cookies[i].includes("user")){
+          userId = cookies[i].substr(5);
+        }
+      }
+      if(userId == !null){
+        document.getElementById("loginHolder").style = "border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        document.getElementById("profileHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        registerUser();
+      }
+      else{
+        document.getElementById("profileHolder").style = "border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        document.getElementById("loginHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        userLoad(userId.toString());
+      }
     }
     </script>
 
