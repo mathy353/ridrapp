@@ -150,9 +150,32 @@
       });
       document.cookie = "user=" + userId;
       document.getElementById("profileHolder").style = "border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
-      document.getElementById("loginHolder").style = "display: hidden; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+      document.getElementById("loginHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
       userLoad(userId.toString());
     }
+    function checkCookie(){
+      var cookies = document.cookie.split("; ");
+      console.log(document.cookie.split("; "));
+      var userId = 69;
+      for(var i = 0; i < cookies.length; i++){
+        console.log(cookies[i]);
+        if(cookies[i][0] == "u"){
+          console.log(cookies[i].substr(5))
+          userId = cookies[i].substr(5);
+        }
+      }
+      console.log(userId);
+      if(userId == 69){
+        document.getElementById("loginHolder").style = "border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        document.getElementById("profileHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+      }
+      else{
+        document.getElementById("profileHolder").style = "border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        document.getElementById("loginHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
+        userLoad(userId);
+      }
+    }
+    window.onload = checkCookie();
     </script>
 
     <!--JavaScript at end of body for optimized loading-->
