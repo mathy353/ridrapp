@@ -275,42 +275,56 @@
 
     <script id="pull locations from bikeshare">
 
-    function showBikes(map, locations){                                         //function to place bikeshare locations from firebase on the map with a custom image
-      for(var i = 0; i < locations.length; i++){                                //for every item in the locatons list
-        var latlng = locations[i].split(", ").map(Number);                      //make a temporary lat/long varaible by splitting the string and mapping our new seperate strings to numbers
-        var lat = latlng[0]; var lng = latlng[1];                               //seperate our lat/long list into a latitude and longitude
-        var image = './icons/bike.png'                                          //locate our bikeshare image
-        var marker = new google.maps.Marker({                                   //create the marker class
-          position: {lat, lng},                                                 //with a position defined by our latitude and longitude
-          map: map,                                                             //on our map
-          title: 'bikeshare',                                                   //with a title labelling it as a bikeshare location
-          icon: image                                                           //and the image we located earlier
+    function showBusStops(map, locations){
+      for(loc in locations){
+        var img = 'icons/bus.png';
+        var lat = locations[loc]["stop_lat"];
+        var lon = locations[loc]["stop_lon"];
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(lat,lon),
+          map: map,
+          title: 'bus stops',
+          icon: img
         });
       }
     }
 
-    var ref = firebase.database().ref('locations/bikeshare/');                  //get a reference of out database at location RIDRapp/locations/bikeshare
-    var bikes;                                                                  //setting up a var for use later
-    ref.on("value", function(snapshot) {                                        //when the reference values update (load), take a snapshot and run some code
-      showBikes(map, snapshot.val())                                            //run the above function with our map and the snapshot we just took
-    }, function (error) {                                                       //if an error arises,
-      console.log("Error: " + error.code);                                      //report it in the console
+    var ref = firebase.database().ref('locations/ometro/');
+    var busStops;
+    ref.on("value", function(snapshot) {
+      showBusStops(map, snapshot.val())
+    }, function (error) {
+      console.log("Error: " + error.code);
     });
 
     </script>
-    <script id="use the google maps geolocation and places APIs in order to get the user's location and return close bus stops">
 
-    function showBusStops(m, la, ln){
-      //make request for bus stops around our geo lat/lng
-      //loop and show markers with icon
+    <script id="pull locations from bikeshare">
+
+    function showBikes(map, locations){
+      for(var i = 0; i < locations.length; i++){
+        var latlng = locations[i].split(", ").map(Number);
+        var lat = latlng[0]; var lng = latlng[1];
+        var image = './icons/bike.png'
+        var marker = new google.maps.Marker({
+          position: {lat, lng},
+          map: map,
+          title: 'bikeshare',
+          icon: image
+        });
+      }
     }
 
-    var options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    };
+    var ref = firebase.database().ref('locations/bikeshare/');
+    var bikes;
+    ref.on("value", function(snapshot) {
+      showBikes(map, snapshot.val())
+    }, function (error) {
+      console.log("Error: " + error.code);
+    });
 
+    </script>
+    <script id="center map on geolocation">
     function success(pos) {
       console.log('Your current position is:');
       console.log(`Latitude : ${pos.coords.latitude}`);
