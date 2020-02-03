@@ -332,7 +332,6 @@
       console.log(`More or less ${pos.coords.accuracy} meters.`);
       var lat = pos.coords.latitude; var lng = pos.coords.longitude;
       map.setCenter({lat,lng});
-      showBusStops(map, lat, lng);
     }
 
     function error(err) {
