@@ -12,6 +12,10 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!-- progressive webapp manifest-->
+      <link rel="manifest" href="/static/manifest.json">
+
+      <title>RIDR</title>
     </head>
 
     <body>
@@ -31,21 +35,21 @@
 
       <br><br><br>
 
-      <div class="searches amber lighten-2" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10">
+      <div class="amber lighten-2" id="searches" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10">
         <div class="row">
           <form class="col s12">
               <div class="row">
                 <div class="input-field col s11">
                   <i class="material-icons prefix white-text">arrow_upward</i>
-                  <textarea id="icon_prefix2" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
-                  <label for="icon_prefix2" style="color: #FFFFFF">Starting Location</label>
+                  <textarea id="startingInput" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
+                  <label for="startingInput" style="color: #FFFFFF">Starting Location</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s11">
                   <i class="material-icons prefix white-text">arrow_downward</i>
-                  <textarea id="icon_prefix2" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
-                  <label for="icon_prefix2" style="color: #FFFFFF">Ending Location</label>
+                  <textarea id="endingInput" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
+                  <label for="endingInput" style="color: #FFFFFF">Ending Location</label>
                 </div>
               </div>
             </form>
@@ -111,14 +115,18 @@
         rideCard.insertAdjacentHTML("beforebegin", newRideCard.outerHTML);
       };
 
-      var testRideArray = ["Uber", 10.00, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1"];
+      var searches = document.getElementById("searches");
+      var origin = searches.querySelector("#startingInput").value;
+      var destination = searches.querySelector("#endingInput").value;
+
+      var testRideArray = ["Uber", 10.00, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1", origin, destination];
 
       var testRideArrayMultiple = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
                                    "Lime", 3.50, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2",
-                                   "Uber", 10.00, "STARTLAT3", "STARTLONG3", "ENDLAT3", "ENDLONG3"];
+                                   "Uber", 10.00, "STARTLAT3", "STARTLONG3", "ENDLAT3", "ENDLONG3", origin, destination];
 
       var testRideArrayLess = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
-                               "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"];
+                               "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2", origin, destination];
 
       var testRideArrayMore = ["MetroBus", 1.50, 41.200620, -96.191856, 41.205290, -96.157526,
                                "Lime", 3.50, 41.205956, -96.157532, 41.227768, -96.156746,
@@ -130,6 +138,8 @@
         makeRideCard(testRideArrayMultiple);
         makeRideCard(testRideArrayLess);
         makeRideCard(testRideArrayMore);
+        console.log(origin);
+        console.log(destination);
       }
 
       </script>
@@ -160,5 +170,14 @@
 
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
+
+      <!--Progressive app servie worker -->
+      <script>
+         if (!navigator.serviceWorker.controller) {
+             navigator.serviceWorker.register("/sw.js").then(function(reg) {
+                 console.log("Service worker has been registered for scope: " + reg.scope);
+             });
+         }
+      </script>
     </body>
   </html>
