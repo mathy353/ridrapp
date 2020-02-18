@@ -1,0 +1,17 @@
+{
+  "name": "RIDR",
+  "short_name": "🡆",
+  "theme_color": "#ffc107",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icons/ridrsqsmall.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
