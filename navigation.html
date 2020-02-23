@@ -273,20 +273,45 @@
       firebase.analytics();
     </script>
 
-    <script id="pull locations from bikeshare">
+    <script id="pull locations from bus stops">
 
     function showBusStops(map, locations){
       for(loc in locations){
         var img = 'icons/bus.png';
         var lat = locations[loc]["stop_lat"];
         var lon = locations[loc]["stop_lon"];
+        var time = locations[loc]["arrival_time"];
+        var name = locations[loc]["stop_name"];
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(lat,lon),
           map: map,
           title: 'bus stops',
+          animation: google.maps.Animation.DROP,
           icon: img
         });
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+        console.log("marker")
+=======
+        addInfoWindow(marker, time, name, map);
+>>>>>>> Stashed changes
+>>>>>>> 6ec83e7f2fffe60e783fe51c0ead8401bd31253f
       }
+    }
+
+    function addInfoWindow(marker, time, name, map){
+      var activeWindow = null;
+      var infoWindow = new google.maps.InfoWindow({
+        content: '<p><b>' + name + '</p></b>'
+                +'<p>' + time + '</p>'
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        if(activeWindow){activeWindow.close()};
+        infoWindow.open(map,marker);
+        console.log(activeWindow.content);
+        var activeWindow = infoWindow;
+      });
     }
 
     var ref = firebase.database().ref('locations/ometro/');
