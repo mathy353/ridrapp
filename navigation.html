@@ -285,7 +285,7 @@
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(lat,lon),
           map: map,
-          title: 'bus stops',
+          title: name,
           animation: google.maps.Animation.DROP,
           icon: img
         });
@@ -301,10 +301,7 @@
                 +'<p>' + time + '</p>'
       });
       google.maps.event.addListener(marker, 'click', function() {
-        if(activeWindow){activeWindow.close()};
         infoWindow.open(map,marker);
-        console.log(activeWindow.content);
-        var activeWindow = infoWindow;
       });
     }
 
