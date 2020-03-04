@@ -33,8 +33,6 @@
     //#4507ff & #07c1ff     alternate these colors
 
     var path = atob(window.location.search.slice(1)).split(",");
-    console.log(path);
-    console.log(path[-2] + " to " + path[-1]);
 
     </script>
     <div id="map"></div>
@@ -278,7 +276,6 @@
     <script id="pull locations from bus stops">
 
     function showBusStops(map, locations){
-      var counter = 0
       for(loc in locations){
         var img = 'icons/bus.png';
         var lat = locations[loc]["stop_lat"];
@@ -292,11 +289,8 @@
           animation: google.maps.Animation.DROP,
           icon: img
         });
-<<<<<<< Updated upstream
         console.log("marker")
-=======
         addInfoWindow(marker, time, name, map);
->>>>>>> Stashed changes
       }
     }
 
@@ -317,7 +311,7 @@
     var ref = firebase.database().ref('locations/ometro/stops/');
     var busStops;
     ref.on("value", function(snapshot) {
-      // showBusStops(map, snapshot.val())
+      showBusStops(map, snapshot.val())
     }, function (error) {
       console.log("Error: " + error.code);
     });
@@ -363,7 +357,7 @@
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }
 
-    navigator.geolocation.getCurrentPosition(success, error, null);
+    navigator.geolocation.getCurrentPosition(success, error, options);
     </script>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
