@@ -314,7 +314,7 @@
       });
     }
 
-    var ref = firebase.database().ref('locations/ometro/');
+    var ref = firebase.database().ref('locations/ometro/stops/');
     var busStops;
     ref.on("value", function(snapshot) {
       // showBusStops(map, snapshot.val())
