@@ -275,40 +275,81 @@
 
     <script id="pull locations from bus stops">
 
-    function showBusStops(map, locations){
-      for(loc in locations){
-        var img = 'icons/bus.png';
-        var lat = locations[loc]["stop_lat"];
-        var lon = locations[loc]["stop_lon"];
-        var time = locations[loc]["arrival_time"];
-        var name = locations[loc]["stop_name"];
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(lat,lon),
-          map: map,
-          title: name,
-          animation: google.maps.Animation.DROP,
-          icon: img
-        });
-        console.log("marker")
-        addInfoWindow(marker, time, name, map);
-      }
-    }
+    // function showBusStops(map, locations){
+    //   for(loc in locations){
+    //     var img =
+    //     var lat = locations[loc]["stop_lat"];
+    //     var lon = locations[loc]["stop_lon"];
+    //     var time = locations[loc]["arrival_time"];
+    //     var name = locations[loc]["stop_name"];
+    //     var marker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(lat,lon),
+    //       map: map,
+    //       title: name,
+    //       animation: google.maps.Animation.DROP,
+    //       icon: img
+    //     });
+    //     console.log("marker")
+    //     addInfoWindow(marker, time, name, map);
+    //   }
+    // }
+    //
+    // function addInfoWindow(marker, time, name, map){
+    //   var activeWindow = null;
+    //   var infoWindow = new google.maps.InfoWindow({
+    //     content: '<p><b>' + name + '</p></b>'
+    //             +'<p>' + time + '</p>'
+    //   });
+    //   google.maps.event.addListener(marker, 'click', function() {
+    //     infoWindow.open(map,marker);
+    //   });
+    // }
+    //
 
-    function addInfoWindow(marker, time, name, map){
+    function showBusRoutes(map, routes, stops){
+      for(route in routes){
+        var img = "icons/bus_" + routes[route]["color"] + ".png"
+        var routeName = routes[route]["route_name"];
+        for(stop in stops){
+          var lat = stops[stop]["stop_lat"];
+          var lon = stops[stop]["stop_lon"];
+          var name = stops[stop]["stop_name"];
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat,lon),
+            map: map,
+            title: name,
+            animation: google.maps.Animation.DROP,
+            icon: img
+          });
+          console.log("maekr added")
+          // addInfoWindow(marker, routeName, name, map);
+        }
+    }
+  }
+
+    function addInfoWindow(marker, route, name, map){
       var activeWindow = null;
       var infoWindow = new google.maps.InfoWindow({
         content: '<p><b>' + name + '</p></b>'
-                +'<p>' + time + '</p>'
+                +'<p>' + route + '</p>'
       });
       google.maps.event.addListener(marker, 'click', function() {
         infoWindow.open(map,marker);
       });
     }
 
-    var ref = firebase.database().ref('locations/ometro/stops/');
-    var busStops;
+    function middleMan(map, snap1){
+      var ref = firebase.database().ref('locations/ometro/stops/');
+      ref.on("value", function(snapshot) {
+        showBusRoutes(map, snap1, snapshot.val())
+      }, function (error) {
+        console.log("Error: " + error.code);
+      });
+    }
+
+    var ref = firebase.database().ref('locations/ometro/routes/');
     ref.on("value", function(snapshot) {
-      showBusStops(map, snapshot.val())
+      middleMan(map, snapshot.val())
     }, function (error) {
       console.log("Error: " + error.code);
     });
