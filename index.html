@@ -1,6 +1,8 @@
   <!DOCTYPE html>
   <html>
     <head>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc"
+      async defer></script>
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -37,14 +39,14 @@
               <div class="row">
                 <div class="input-field col s11">
                   <i class="material-icons prefix white-text">arrow_upward</i>
-                  <textarea id="icon_prefix2" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
+                  <textarea id="origin" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
                   <label for="icon_prefix2" style="color: #FFFFFF">Starting Location</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s11">
                   <i class="material-icons prefix white-text">arrow_downward</i>
-                  <textarea id="icon_prefix2" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
+                  <textarea id="destination" class="materialize-textarea-bare white-text" style="resize: none; border: none"></textarea>
                   <label for="icon_prefix2" style="color: #FFFFFF">Ending Location</label>
                 </div>
               </div>
@@ -111,24 +113,29 @@
         rideCard.insertAdjacentHTML("beforebegin", newRideCard.outerHTML);
       };
 
-      var testRideArray = ["Uber", 10.00, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1"];
-
-      var testRideArrayMultiple = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
-                                   "Lime", 3.50, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2",
-                                   "Uber", 10.00, "STARTLAT3", "STARTLONG3", "ENDLAT3", "ENDLONG3"];
-
-      var testRideArrayLess = ["MetroBus", 1.50, "STARTLAT1", "STARTLONG1", "ENDLAT1", "ENDLONG1",
-                               "Uber", 10.00, "STARTLAT2", "STARTLONG2", "ENDLAT2", "ENDLONG2"];
-
-      var testRideArrayMore = ["MetroBus", 1.50, 41.200620, -96.191856, 41.205290, -96.157526,
-                               "Lime", 3.50, 41.205956, -96.157532, 41.227768, -96.156746,
-                               "Uber", 10.00, 41.228533, -96.157763, 41.268809, -96.217436,
-                               "Lyft", 15.00, 41.268648, -96.215661, 41.294786, -96.230595];
+      function handleResponse(response){
+          
+      }
 
       function makeTestFollowers(){
-        console.log(origin);
-        console.log(destination);
-        //get connections and make array
+        var start = document.getElementById("origin").value.replace(/[\n\r]/g, '');
+        var end = document.getElementById("destination").value.replace(/[\n\r]/g, '');
+        var service = new google.maps.DirectionsService();
+        var request = {
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING',
+          provideRouteAlternatives: true,
+          avoidFerries: true,
+          avoidHighways: true,
+          avoidTolls: true
+        }
+
+        service.route(request, function(result, status) {
+          if(status == 'OK'){
+            handleResponse(result)
+          }
+        })
       }
 
       </script>
