@@ -43,207 +43,7 @@
           center: {lat: 41.200665, lng: -96.193945},
           zoom: 15,
           disableDefaultUI: true,
-          styles:
-            [
-                {
-                    "featureType": "all",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "saturation": 36
-                        },
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 40
-                        }
-                    ]
-                },
-                {
-                    "featureType": "all",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 16
-                        }
-                    ]
-                },
-                {
-                    "featureType": "all",
-                    "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 20
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 17
-                        },
-                        {
-                            "weight": 1.2
-                        }
-                    ]
-                },
-                {
-                    "featureType": "landscape",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 20
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 21
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "lightness": "0"
-                        },
-                        {
-                            "saturation": "100"
-                        },
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#ff6f00"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 29
-                        },
-                        {
-                            "weight": 0.2
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway.controlled_access",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 18
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#ffa000"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 16
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#ffd54f"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "transit",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        },
-                        {
-                            "lightness": 19
-                        }
-                    ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#2e2e2e"
-                        },
-                        {
-                            "lightness": 17
-                        }
-                    ]
-                }
-            ]
+          styles:[{"featureType":"administrative.neighborhood","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"off"}]}]
         });
       }
     </script>
@@ -275,67 +75,43 @@
 
     <script id="pull locations from bus stops">
 
-    // function showBusStops(map, locations){
-    //   for(loc in locations){
-    //     var img =
-    //     var lat = locations[loc]["stop_lat"];
-    //     var lon = locations[loc]["stop_lon"];
-    //     var time = locations[loc]["arrival_time"];
-    //     var name = locations[loc]["stop_name"];
-    //     var marker = new google.maps.Marker({
-    //       position: new google.maps.LatLng(lat,lon),
-    //       map: map,
-    //       title: name,
-    //       animation: google.maps.Animation.DROP,
-    //       icon: img
-    //     });
-    //     console.log("marker")
-    //     addInfoWindow(marker, time, name, map);
-    //   }
-    // }
-    //
-    // function addInfoWindow(marker, time, name, map){
-    //   var activeWindow = null;
-    //   var infoWindow = new google.maps.InfoWindow({
-    //     content: '<p><b>' + name + '</p></b>'
-    //             +'<p>' + time + '</p>'
-    //   });
-    //   google.maps.event.addListener(marker, 'click', function() {
-    //     infoWindow.open(map,marker);
-    //   });
-    // }
-    //
-
-    function showBusRoutes(map, routes, stops){
-      for(route in routes){
-        var img = "icons/bus_" + routes[route]["color"] + ".png"
-        var routeName = routes[route]["route_name"];
-        for(stop in stops){
-          var lat = stops[stop]["stop_lat"];
-          var lon = stops[stop]["stop_lon"];
-          var name = stops[stop]["stop_name"];
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat,lon),
-            map: map,
-            title: name,
-            animation: google.maps.Animation.DROP,
-            icon: img
-          });
-          console.log("maekr added")
-          // addInfoWindow(marker, routeName, name, map);
-        }
+      function showBusRoutes(map, routes, stops){
+        for(route in routes){
+          for(routeStop in routes[route]["route_list"]){
+            for(stop in stops){
+              if(stop == routes[route]["route_list"][routeStop]){
+                var img = "icons/bus_" + routes[route]["color"] + ".png"
+                var routeName = routes[route]["route_name"];
+                var lat = stops[stop]["stop_lat"];
+                var lon = stops[stop]["stop_lon"];
+                var name = stops[stop]["stop_name"];
+                var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(lat,lon),
+                  map: map,
+                  title: name,
+                  animation: google.maps.Animation.DROP,
+                  icon: img
+                });
+                console.log("maekr added")
+                addInfoWindow(marker, routeName, name, map, img);
+              }
+            }
+          }
+      }
     }
-  }
 
-    function addInfoWindow(marker, route, name, map){
-      var activeWindow = null;
-      var infoWindow = new google.maps.InfoWindow({
-        content: '<p><b>' + name + '</p></b>'
-                +'<p>' + route + '</p>'
-      });
+    var infoWindow = new google.maps.InfoWindow({content: ''});
+
+    function addInfoWindow(marker, route, name, map, color){
       google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.close();
+        infoWindow.setContent(contentString(name, route, color));
         infoWindow.open(map,marker);
       });
+    }
+
+    function contentString(name, route, color){
+      return '<p><b>' + name + '</p></b>' + '<br>' + '<p>' + route + " (" + color + ")" + '</p>'
     }
 
     function middleMan(map, snap1){
