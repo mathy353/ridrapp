@@ -72,15 +72,14 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
-
     <script id="pull locations from bus stops">
-
       function showBusRoutes(map, routes, stops){
         for(route in routes){
+          var shape = [];
           for(routeStop in routes[route]["route_list"]){
             for(stop in stops){
               if(stop == routes[route]["route_list"][routeStop]){
-                var img = "icons/bus_" + routes[route]["color"] + ".png"
+                var img = "icons/bus_" + routes[route]["color"] + ".png";
                 var routeName = routes[route]["route_name"];
                 var lat = stops[stop]["stop_lat"];
                 var lon = stops[stop]["stop_lon"];
@@ -92,11 +91,20 @@
                   animation: google.maps.Animation.DROP,
                   icon: img
                 });
-                console.log("maekr added")
+                var pos = new google.maps.LatLng(lat,lon);
+                shape.push(pos);
                 addInfoWindow(marker, routeName, name, map, img);
               }
             }
           }
+          var path = new google.maps.Polyline({
+            strokeColor: "#" + routes[route]["color"],
+            strokeOpacity: 1.0,
+            strokeWeight: 3,
+            map: map,
+            path: shape
+          });
+          console.log("!")
       }
     }
 
