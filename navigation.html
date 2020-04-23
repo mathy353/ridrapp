@@ -35,8 +35,7 @@
     var path = atob(window.location.search.slice(1)).split(",");
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc&callback=initMap"
-    async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc&callback=initMap"></script>
     <div id="map"></div>
     <script>
       var map;
@@ -47,6 +46,7 @@
           disableDefaultUI: true,
           styles:[{"featureType":"administrative.neighborhood","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"off"}]}]
         });
+        initBus();
       }
     </script>
 
@@ -84,31 +84,22 @@
                 var lat = stops[stop]["stop_lat"];
                 var lon = stops[stop]["stop_lon"];
                 var name = stops[stop]["stop_name"];
-                var marker = new google.maps.Marker({
-                  position: new google.maps.LatLng(lat,lon),
-                  map: map,
-                  title: name,
-                  animation: google.maps.Animation.DROP,
-                  icon: img
-                });
-                var pos = new google.maps.LatLng(lat,lon);
-                shape.push(pos);
+                if(routes[route]["color"] != "231F20"){
+                  var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(lat,lon),
+                    map: map,
+                    title: name,
+                    animation: google.maps.Animation.DROP,
+                    icon: img
+                  });
+                }
                 addInfoWindow(marker, routeName, name, map, img);
               }
             }
           }
-          var path = new google.maps.Polyline({
-            strokeColor: "#" + routes[route]["color"],
-            strokeOpacity: 1.0,
-            strokeWeight: 3,
-            map: map,
-            path: shape
-          });
           console.log("!")
       }
     }
-
-    var infoWindow = new google.maps.InfoWindow({content: ''});
 
     function addInfoWindow(marker, route, name, map, color){
       google.maps.event.addListener(marker, 'click', function() {
@@ -131,12 +122,15 @@
       });
     }
 
-    var ref = firebase.database().ref('locations/ometro/routes/');
-    ref.on("value", function(snapshot) {
-      middleMan(map, snapshot.val())
-    }, function (error) {
-      console.log("Error: " + error.code);
-    });
+    function initBus(){
+      var ref = firebase.database().ref('locations/ometro/routes/');
+      ref.on("value", function(snapshot) {
+        middleMan(map, snapshot.val())
+      }, function (error) {
+        console.log("Error: " + error.code);
+      });
+      var infoWindow = new google.maps.InfoWindow({content: ''});
+    }
 
     </script>
 
